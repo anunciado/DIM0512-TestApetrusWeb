@@ -6,9 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+@SuppressWarnings("unused")	
 public class ApetrusLoginPage {
 
-	@SuppressWarnings("unused")
+	private static final String login = "luis.eduardo.225@gmail.com";
+	
+	private static final String senha = "123456789";
+	
 	private WebDriver driver;
 
 	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='Atenção!'])[1]/following::input[1]")
@@ -23,9 +27,9 @@ public class ApetrusLoginPage {
 	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='Seguir como:'])[1]/following::div[4]")
 	private WebElement botaoContinuar;
 	
-	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='Ativar Notificações push'])[1]/following::span[2]")
-	private WebElement loginUsuario;
-	
+//	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='A chave deve ter 6 dígitos, contendo letras e/ou números'])[1]/following::div[2]")
+//	private WebElement botaoChaveAbastecimento;
+
 	private String urlBase = "https://teste-app.apetrus.com.br/";
 
 	public ApetrusLoginPage(WebDriver driver) {
@@ -34,21 +38,12 @@ public class ApetrusLoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void fazerLogin(String login, String senha){
+	public void fazerLogin(){
 		inputLogin.clear();
 		inputLogin.sendKeys(login);
 		inputSenha.clear();
 		inputSenha.sendKeys(senha);
 		botaoEntrar.click();
-		irParaProximaPagina();
-	}
-
-	private void irParaProximaPagina() {
 		botaoContinuar.click();
-		driver.getCurrentUrl();
-	}	
-	
-	public boolean logado(String login) {
-		return loginUsuario.getText().contains(login);
 	}
 }

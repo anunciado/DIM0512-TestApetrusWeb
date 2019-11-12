@@ -10,14 +10,14 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import br.ufrn.imd.page.ApetrusLoginPage;
+import br.ufrn.imd.page.ApetrusHomePage;
 
+@SuppressWarnings("unused")
 public class ApetrusLoginPageTest {
 
 		private static WebDriver driver;
 		private static String driverPathWindows = "drivers/windows/chromedriver.exe";	
 		private static String driverPathLinux = "drivers/linux/chromedriver";	  
-
 		
 		@BeforeClass 
 		public static void setUp() {
@@ -32,10 +32,9 @@ public class ApetrusLoginPageTest {
 		}	
 		
 		@Test 
-		public void testUltimaNoticia(){
-			ApetrusLoginPage homePage = new ApetrusLoginPage(driver);
-			homePage.fazerLogin("luis.eduardo.225@gmail.com", "123456789"); 
-			assertTrue(homePage.logado("luis.eduardo.225@gmail.com"));
+		public void testUsuarioLogado(){
+			ApetrusHomePage homePage = new ApetrusHomePage(driver);
+			assertTrue(homePage.getUsuarioLogado("luis.eduardo.225@gmail.com"));
 		}
 }
 
