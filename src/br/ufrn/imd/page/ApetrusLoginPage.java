@@ -8,10 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 @SuppressWarnings("unused")	
 public class ApetrusLoginPage {
-
-	private static final String login = "luis.eduardo.225@gmail.com";
-	
-	private static final String senha = "123456789";
 	
 	private WebDriver driver;
 
@@ -38,7 +34,7 @@ public class ApetrusLoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void fazerLogin(){
+	public void fazerLogin(String login, String senha){
 		inputLogin.clear();
 		inputLogin.sendKeys(login);
 		inputSenha.clear();
