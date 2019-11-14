@@ -27,8 +27,8 @@ public class ApetrusLoginPage {
 	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='Seguir como:'])[1]/following::div[4]")
 	private WebElement botaoContinuar;
 	
-//	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='A chave deve ter 6 dígitos, contendo letras e/ou números'])[1]/following::div[2]")
-//	private WebElement botaoChaveAbastecimento;
+	@FindBy(how = How.XPATH, using = "(.//*[normalize-space(text()) and normalize-space(.)='A chave deve ter 6 dígitos, contendo letras e/ou números'])[1]/following::div[2]")
+	private WebElement botaoChaveAbastecimento;
 
 	private String urlBase = "https://teste-app.apetrus.com.br/";
 
@@ -45,5 +45,6 @@ public class ApetrusLoginPage {
 		inputSenha.sendKeys(senha);
 		botaoEntrar.click();
 		botaoContinuar.click();
+		botaoChaveAbastecimento.click();
 	}
 }
